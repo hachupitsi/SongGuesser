@@ -12,7 +12,9 @@ namespace SongGuesser
 {
     public partial class MainForm : Form
     {
-        ParamsForm pf = new ParamsForm();
+        PlayForm playf = new PlayForm();
+        ParamsForm paramsf = new ParamsForm();
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,12 +22,17 @@ namespace SongGuesser
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            
+            playf.ShowDialog();
         }
 
         private void buttonParams_Click(object sender, EventArgs e)
         {
-            pf.ShowDialog();
+            paramsf.ShowDialog();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

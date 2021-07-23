@@ -34,6 +34,8 @@ namespace SongGuesser
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 listBoxSongs.Items.AddRange(Directory.GetFiles(fbd.SelectedPath, "*.wav", cbSelectAllDir.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
+                Challenge.songs.Clear();
+                Challenge.songs.AddRange(Directory.GetFiles(fbd.SelectedPath, "*.wav", cbSelectAllDir.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
             }
         }
 
