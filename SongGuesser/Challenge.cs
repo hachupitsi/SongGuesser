@@ -16,12 +16,16 @@ namespace SongGuesser
         static public string savedFolder = "";
         static public bool randomStart = false;
         static public bool allDir = false;
-        static string gameKey = "SOFTWARE//ChillCompany//SongGuesser";
+        static string gameKey = "SOFTWARE\\ChillCompany\\SongGuesser";
 
         static public void ReadSongs()
         {
-            songs.Clear();
-            songs.AddRange(Directory.GetFiles(savedFolder, "*.wav", allDir ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
+            try
+            {
+                songs.Clear();
+                songs.AddRange(Directory.GetFiles(savedFolder, "*.wav", allDir ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly));
+            }
+            catch { }
         }
 
         static public void WriteParams()

@@ -77,6 +77,7 @@
             this.Controls.Add(this.buttonPlay);
             this.Name = "MainForm";
             this.Text = "Меню";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

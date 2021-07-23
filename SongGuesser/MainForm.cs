@@ -34,5 +34,11 @@ namespace SongGuesser
         {
             this.Close();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Challenge.ReadParams();
+            Challenge.ReadSongs();
+        }
     }
 }
