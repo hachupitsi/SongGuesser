@@ -20,6 +20,7 @@ namespace SongGuesser
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            Challenge.WriteParams();
             this.Hide();
         }
 
