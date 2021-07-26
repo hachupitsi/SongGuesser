@@ -12,14 +12,29 @@ namespace SongGuesser
 {
     public partial class PlayForm : Form
     {
+        Random rand = new Random();
+        int n;
+
         public PlayForm()
         {
             InitializeComponent();
         }
 
+        private void playRandomSong()
+        {
+            n = rand.Next(0, Challenge.songs.Count);
+            wmp.URL = Challenge.songs[n];
+            Challenge.songs.RemoveAt(n);
+        }
+
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            wmp.URL = Challenge.songs[2];
+            playRandomSong();
+        }
+
+        private void PlayForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            wmp.Ctlcontrols.stop();
         }
     }
 }
