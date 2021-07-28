@@ -104,7 +104,9 @@ namespace SongGuesser
             if (e.KeyData == Keys.A)
             {
                 gamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                AnswerForm af = new AnswerForm();
+                af.labelPlayer.Text = "Игрок 1";
+                if (af.ShowDialog() == DialogResult.Yes)
                 {
                     labelPlayer1.Text = (Convert.ToInt32(labelPlayer1.Text) + 1).ToString();
                     playRandomSong();
@@ -114,7 +116,9 @@ namespace SongGuesser
             else if (e.KeyData == Keys.L)
             {
                 gamePause();
-                if (MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                AnswerForm af = new AnswerForm();
+                af.labelPlayer.Text = "Игрок 2";
+                if (af.ShowDialog() == DialogResult.Yes)
                 {
                     labelPlayer2.Text = (Convert.ToInt32(labelPlayer2.Text) + 1).ToString();
                     playRandomSong();

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnswerForm.Designer.cs">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Challenge.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnswerForm.resx">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
