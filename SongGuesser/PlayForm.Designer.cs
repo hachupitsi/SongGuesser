@@ -42,6 +42,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.labelSongDuration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,9 +59,9 @@
             // buttonNext
             // 
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNext.Location = new System.Drawing.Point(12, 351);
+            this.buttonNext.Location = new System.Drawing.Point(41, 351);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(289, 87);
+            this.buttonNext.Size = new System.Drawing.Size(260, 87);
             this.buttonNext.TabIndex = 1;
             this.buttonNext.Text = "Следующая";
             this.buttonNext.UseVisualStyleBackColor = true;
@@ -160,12 +161,23 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "песен осталось";
             // 
+            // labelSongDuration
+            // 
+            this.labelSongDuration.AutoSize = true;
+            this.labelSongDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSongDuration.Location = new System.Drawing.Point(345, 36);
+            this.labelSongDuration.Name = "labelSongDuration";
+            this.labelSongDuration.Size = new System.Drawing.Size(29, 31);
+            this.labelSongDuration.TabIndex = 11;
+            this.labelSongDuration.Text = "0";
+            // 
             // PlayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SongGuesser.Properties.Resources.main;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelSongDuration);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.labelSongCounter);
@@ -177,10 +189,12 @@
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.wmp);
+            this.KeyPreview = true;
             this.Name = "PlayForm";
             this.Text = "PlayForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayForm_FormClosed);
             this.Load += new System.EventHandler(this.PlayForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlayForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,5 +215,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSongDuration;
     }
 }
