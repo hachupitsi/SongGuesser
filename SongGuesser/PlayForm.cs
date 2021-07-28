@@ -70,6 +70,7 @@ namespace SongGuesser
             if (progressBar1.Value == progressBar1.Maximum)
             {
                 endGame();
+                progressBar1.Value = 0;
                 return;
             }
             if (songDuration == 0)
@@ -120,6 +121,16 @@ namespace SongGuesser
                 }
                 gameStart();
             }
+        }
+
+        private void wmp_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Challenge.randomStart)
+                if (wmp.openState == WMPLib.WMPOpenState.wmposMediaOpen)
+                    if (wmp.currentMedia.duration > songDuration)
+                        wmp.Ctlcontrols.currentPosition = rand.Next(0, (int)wmp.currentMedia.duration - songDuration);
+                    else
+                        playRandomSong();
         }
     }
 }
