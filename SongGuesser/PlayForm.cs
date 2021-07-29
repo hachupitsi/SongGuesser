@@ -15,6 +15,7 @@ namespace SongGuesser
         Random rand = new Random();
         int n;
         int songDuration;
+        bool[] players = new bool[2];
 
         public PlayForm()
         {
@@ -33,6 +34,8 @@ namespace SongGuesser
                 endGame();
             else
             {
+                players[0] = false;
+                players[1] = false;
                 songDuration = Challenge.songDuration;
                 n = rand.Next(0, Challenge.songs.Count);
                 wmp.URL = Challenge.songs[n];
@@ -101,9 +104,12 @@ namespace SongGuesser
 
         private void PlayForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.A)
+            if (!timer1.Enabled)
+                return;
+            if (players[0] == false && e.KeyData == Keys.A)
             {
                 gamePause();
+                players[0] = true;
                 AnswerForm af = new AnswerForm();
                 af.labelPlayer.Text = "Игрок 1";
                 if (af.ShowDialog() == DialogResult.Yes)
@@ -113,9 +119,10 @@ namespace SongGuesser
                 }
                 gameStart();
             }
-            else if (e.KeyData == Keys.L)
+            else if (players[1] == false && e.KeyData == Keys.L)
             {
                 gamePause();
+                players[1] = true;
                 AnswerForm af = new AnswerForm();
                 af.labelPlayer.Text = "Игрок 2";
                 if (af.ShowDialog() == DialogResult.Yes)
