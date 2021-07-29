@@ -17,6 +17,7 @@ namespace SongGuesser
         static public bool randomStart = false;
         static public bool allDir = false;
         static string gameKey = "SOFTWARE\\ChillCompany\\SongGuesser";
+        static public string answer = "";
 
         static public void ReadSongs()
         {

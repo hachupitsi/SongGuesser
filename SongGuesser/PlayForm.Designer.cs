@@ -109,6 +109,7 @@
             this.labelPlayer1.Size = new System.Drawing.Size(26, 29);
             this.labelPlayer1.TabIndex = 5;
             this.labelPlayer1.Text = "0";
+            this.labelPlayer1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelPlayer1_MouseClick);
             // 
             // label3
             // 
@@ -129,6 +130,7 @@
             this.labelPlayer2.Size = new System.Drawing.Size(26, 29);
             this.labelPlayer2.TabIndex = 7;
             this.labelPlayer2.Text = "0";
+            this.labelPlayer2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelPlayer1_MouseClick);
             // 
             // labelSongCounter
             // 

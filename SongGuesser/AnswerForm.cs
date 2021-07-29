@@ -35,5 +35,10 @@ namespace SongGuesser
 
             }
         }
+
+        private void labelAnswer_Click(object sender, EventArgs e)
+        {
+            labelAnswer.Text = Challenge.answer;
+        }
     }
 }

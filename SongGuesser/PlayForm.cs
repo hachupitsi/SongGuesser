@@ -39,6 +39,7 @@ namespace SongGuesser
                 songDuration = Challenge.songDuration;
                 n = rand.Next(0, Challenge.songs.Count);
                 wmp.URL = Challenge.songs[n];
+                Challenge.answer = System.IO.Path.GetFileNameWithoutExtension(wmp.URL);
                 Challenge.songs.RemoveAt(n);
                 labelSongCounter.Text = Challenge.songs.Count.ToString();
             }
@@ -142,6 +143,14 @@ namespace SongGuesser
                         wmp.Ctlcontrols.currentPosition = rand.Next(0, (int)wmp.currentMedia.duration - songDuration);
                     else
                         playRandomSong();
+        }
+
+        private void labelPlayer1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                (sender as Label).Text = (Convert.ToInt32((sender as Label).Text) + 1).ToString();
+            if (e.Button == MouseButtons.Right)
+                (sender as Label).Text = (Convert.ToInt32((sender as Label).Text) - 1).ToString();
         }
     }
 }
